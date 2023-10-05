@@ -98,7 +98,7 @@ def get_number_of_lines():
 
 def get_bet():
   while True:
-    amount = input("How much would you like to bet? $")
+    amount = input("How much would you like to bet per line? $")
     if amount.isdigit():
       amount = int(amount)
       if MIN_BET <= amount <= MAX_BET:
@@ -109,6 +109,19 @@ def get_bet():
       print("Please enter a number.")  
 
   return amount 
+
+def recharge():
+  while True:
+    amount = input("how much you like to recharge? $")
+    if amount.isdigit():
+      amount = int(amount)
+      if amount > 0:
+        break
+      else:
+        print("amount must be more than 0")
+    else:
+      print("Please enter a number.")
+  return amount        
 
 
 def game(balance):
@@ -136,32 +149,28 @@ def main():
   balance = deposit()
   while True:
     print(f"Current balance is ${balance}")
+    if balance < 1 :
+      y_n = input("Would you like to recharge? (y or n):")
+      if y_n == "y":
+        recharge_amount = recharge()
+        balance += recharge_amount
+        print(f"Current balance is ${balance}")
+      else:
+        print("GAME OVER. ")
+        break  
+
     answer =  input("Press enter to play (q to quit)")
     if answer == "q":
       print(f"You left with ${balance}")
-      break
+      break 
+      
+
+    
+    
+
+    
       
     balance += game(balance)
-
-
-    balance < 1
-    while True:
-      print("You do not have enough balance to continue playing.")
-      y_n= input("Would you like to recharge your balance? ")
-      if y_n != "y" or "n":
-         print("Please enter y for yes and n for no.")
-         y_n= input("Would you like to recharge your balance? ")
-      if y_n == "y":
-          amount_recharge = input("How much would you like to recharge? $")
-          if amount_recharge.isdigit():
-            amount_recharge = int(amount_recharge)
-            
-          else:
-            print("Please enter a number.")   
-            balance += amount_recharge    
-      if y_n == "n":
-          print(f"You left with ${balance}")
-          break
 
            
 
@@ -170,10 +179,5 @@ def main():
 
 
        
-
-      
-      
-      
-
 
 main()
