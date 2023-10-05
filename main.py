@@ -143,22 +143,44 @@ def main():
       
     balance += game(balance)
 
-    if balance < 1 :
+    # if balance < 1 :
+    #   print("You do not have enough balance to continue playing.")
+    #   y_n= input("Would you like to recharge your balance? ")
+    #   if y_n != "y" or "n":
+    #      print("Please enter y for yes and n for no.")
+    #      y_n= input("Would you like to recharge your balance? ")
+    #   if y_n == "y":
+    #       amount_recharge = input("How much would you like to recharge? $")
+    #       if amount_recharge.isdigit():
+    #         amount_recharge = int(amount_recharge)
+            
+    #       else:
+    #         print("Please enter a number.")   
+    #         balance += amount_recharge    
+    #   if y_n == "n":
+    #       print(f"You left with ${balance}")
+    #       break
+
+    balance < 1
+    while True:
       print("You do not have enough balance to continue playing.")
       y_n= input("Would you like to recharge your balance? ")
+      if y_n != "y" or "n":
+         print("Please enter y for yes and n for no.")
+         y_n= input("Would you like to recharge your balance? ")
       if y_n == "y":
-        amount_recharge = input("How much would you like to recharge? $")
-        if amount_recharge.isdigit():
-         amount_recharge = int(amount_recharge)
-           
-        else:
-          print("Please enter a number.")   
-        balance += amount_recharge    
-      
+          amount_recharge = input("How much would you like to recharge? $")
+          if amount_recharge.isdigit():
+            amount_recharge = int(amount_recharge)
+            
+          else:
+            print("Please enter a number.")   
+            balance += amount_recharge    
       if y_n == "n":
-        print(f"You left with ${balance}")
-        break
+          print(f"You left with ${balance}")
+          break
 
+           
 
 
 
